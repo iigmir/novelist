@@ -51,3 +51,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # markdown
 gem "redcarpet"
+
+# member service
+gem "devise"
+gem "devise-i18n"
