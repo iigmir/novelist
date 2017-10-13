@@ -1,3 +1,4 @@
 class Novel < ApplicationRecord
-    has_many Article
+    #title author plot
+    has_many :Article
 end

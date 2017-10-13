@@ -1,0 +1,10 @@
+<%# Form %>
+<%= form_for @forms do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :plot %>:
+  <%= f.text_field :plot %><br />
+
+  <%= f.submit %>
+<% end %>
