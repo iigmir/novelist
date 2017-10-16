@@ -1,7 +1,8 @@
 <h1><%= link_to "成為小說家吧", novels_path %></h1>
 <h2><%= @novel.title %></h2>
 
-<%= @markdown.render( @novel.plot ).html_safe %>
+<%#= @markdown.render( @novel.plot ) %>
+<%= sanitize( @markdown.render( @novel.plot ) ) %>
 
 <p>
     <%= link_to "編輯", edit_novel_path( @novel.id ) %>
