@@ -1,3 +1,7 @@
-成為小說家吧
-<br />
+<h1>成為小說家吧</h1>
+<ul>
+    <% @novels.each do |n| %>
+    <li> <%= link_to n.title, novel_path(n.id) %> </li>
+    <% end %>
+</ul>
 <%= link_to "建立新的小說", new_novel_path %>

@@ -1,10 +1,10 @@
 <%# Form %>
 <%= form_for @forms do |f| %>
-  <%= f.label :title %>:
+  <%= f.label :title , "標題" %>:
   <%= f.text_field :title %><br />
 
-  <%= f.label :plot %>:
-  <%= f.text_field :plot %><br />
+  <%= f.label :plot , "簡介" %>:
+  <%= f.text_area :plot %><br />
 
   <%= f.submit %>
 <% end %>
