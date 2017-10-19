@@ -1,10 +1,11 @@
 class NovelsController < ApplicationController
-    #before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
     def new
         @forms = Novel.new
     end
     def create
         @new_novel = Novel.create(novel_params)
+        @new_novel.author = current_user.nickname
         if @new_novel.save
             Novel.joins(@new_novel)
             redirect_to novels_path
@@ -45,6 +46,6 @@ class NovelsController < ApplicationController
     private
     def novel_params
         #title author plot
-        params.require(:novel).permit(:title, :plot)
+        params.require(:novel).permit(:title, :plot )
     end
 end
