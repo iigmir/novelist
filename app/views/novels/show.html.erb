@@ -4,7 +4,9 @@
 <%#= @markdown.render( @novel.plot ) %>
 <%= sanitize( @markdown.render( @novel.plot ) ) %>
 
-<p>
+<%= if user_signed_in? %>
     <%= link_to "編輯", edit_novel_path( @novel.id ) %>
     <%= link_to "刪除", novel_path( @novel.id ), data: {confirm: '確定嗎？'}, method: :delete %>
-</p>
+<%= else %>
+    <%= link_to "登出", destroy_user_session, method: :delete %>
+<%= end %>

@@ -4,4 +4,9 @@
     <li> <%= link_to n.title, novel_path(n.id) %> </li>
     <% end %>
 </ul>
-<%= link_to "建立新的小說", new_novel_path %>
+
+<%= if user_signed_in? %>
+    <%= link_to "建立新的小說", new_novel_path %>
+<%= else %>
+    <%= link_to "登出", destroy_user_session, method: :delete %>
+<%= end %>
