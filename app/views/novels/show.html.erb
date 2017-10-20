@@ -4,9 +4,11 @@
 <%#= @markdown.render( @novel.plot ) %>
 <%= sanitize( @markdown.render( @novel.plot ) ) %>
 
-<%= if user_signed_in? %>
+<% if user_signed_in? %>
     <%= link_to "編輯", edit_novel_path( @novel.id ) %>
     <%= link_to "刪除", novel_path( @novel.id ), data: {confirm: '確定嗎？'}, method: :delete %>
-<%= else %>
+    <%#= link_to "新的章節" %>
     <%= link_to "登出", destroy_user_session, method: :delete %>
-<%= end %>
+<% else %>
+    <%= link_to "登入", new_user_session_path %>
+<% end %>
