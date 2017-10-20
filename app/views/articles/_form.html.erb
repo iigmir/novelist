@@ -1,0 +1,9 @@
+<%= form_for( @forms , url: @form_url ) do |f| %>
+  <%= f.label :subtitle , "小標題" %>:
+  <%= f.text_field :subtitle %><br />
+
+  <%= f.label :context , "內文" %>:
+  <%= f.text_area :context %><br />
+
+  <%= f.submit %>
+<% end %>
