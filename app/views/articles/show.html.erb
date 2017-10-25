@@ -1,0 +1,13 @@
+<h1><%= link_to "成為小說家吧", novels_path %></h1>
+<h2><%= link_to @novel.title , novel_path( params[:id] ) %></h2>
+<h3><%= @article.subtitle %></h3>
+
+<%= sanitize( @markdown.render( @article.context ) ) %>
+
+<% if user_signed_in? %>
+    <%= link_to "編輯", edit_novel_article_path({ novel_id: @novel.id , id: @article.chapter }) %>
+    <%#= link_to "刪除", novel_article_path({ novel_id: @novel.id , id: @article.chapter }), data: {confirm: '確定嗎？'}, method: :delete %>
+    <%= link_to "登出", destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to "登入", new_user_session_path %>
+<% end %>

@@ -6,7 +6,7 @@
 
 <ol>
     <% @articles.each do |a| %>
-    <li><%= a.subtitle %></li>
+    <li><%= link_to a.subtitle , novel_article_path({ novel_id: @novel.id , id: a.chapter }) %></li>
     <% end %>
 </ol>
 

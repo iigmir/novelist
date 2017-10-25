@@ -18,6 +18,11 @@ class ArticlesController < ApplicationController
             render :new
         end
     end
+    def show
+        @novel = Novel.find( params[:novel_id] )
+        @article = Article.find( params[:id] )
+        @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    end
 
     private
     def article_params
