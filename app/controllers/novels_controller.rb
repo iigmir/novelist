@@ -15,10 +15,11 @@ class NovelsController < ApplicationController
     end
     
     def index
-        @novels = Novel.order('id DESC')
+        @novels = Novel.order("id DESC")
     end
     def show
-        @novel = Novel.find(params[:id])
+        @novel = Novel.find( params[:id] )
+        @articles = Article.where( "novel_id = ?" , params[:id] )
         @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     end
 

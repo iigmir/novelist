@@ -4,6 +4,12 @@
 <%#= @markdown.render( @novel.plot ) %>
 <%= sanitize( @markdown.render( @novel.plot ) ) %>
 
+<ol>
+    <% @articles.each do |a| %>
+    <li><%= a.subtitle %></li>
+    <% end %>
+</ol>
+
 <% if user_signed_in? %>
     <%= link_to "編輯", edit_novel_path( @novel.id ) %>
     <%= link_to "刪除", novel_path( @novel.id ), data: {confirm: '確定嗎？'}, method: :delete %>
