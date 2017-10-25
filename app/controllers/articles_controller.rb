@@ -6,10 +6,10 @@ class ArticlesController < ApplicationController
     end
     def create
         new_article = Article.create(article_params)
-        new_article.novels_id = params[:novel_id] # Novel number that article belong to
+        new_article.novel_id = params[:novel_id] # Novel number that article belong to
         new_article.chapter = Article.chapter_number( params[:novel_id] )
-        byebug
-        if new_article.save
+        #byebug
+        if new_article.save!
             Article.joins(new_article)
             redirect_to novel_path( params[:novel_id] )
         else
