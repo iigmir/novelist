@@ -28,25 +28,23 @@ class NovelsController < ApplicationController
     end
     def update
         novel = Novel.find(params[:id])
-        #novel = 
         if novel.update(novel_params)
-            #Novel.joins(novel)
             redirect_to novel_path( Novel.find( params[:id] ) )
         else
             render :new
         end
-        #article_path(@article)
     end
 
     def destroy
         novel = Novel.find(params[:id])
         novel.destroy
+        articles = Article.where( "novel_id = ?" , params[:id] )
+        articles.destroy_all
         redirect_to novels_path
     end
 
     private
     def novel_params
-        #title author plot
-        params.require(:novel).permit(:title, :plot )
+        params.require(:novel).permit( :title, :plot )
     end
 end

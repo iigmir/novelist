@@ -18,10 +18,32 @@ class ArticlesController < ApplicationController
             render :new
         end
     end
+
     def show
+        #byebug
         @novel = Novel.find( params[:novel_id] )
-        @article = Article.find( params[:id] )
+        @article = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
         @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    end
+
+    def edit
+        @forms = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
+        @form_url = novel_article_path
+    end
+    def update
+        article = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
+        #byebug
+        if article.update( article_params )
+            redirect_to novel_article_path({ novel_id: params[:novel_id] , id: params[:id] })
+        else
+            render :new
+        end
+    end
+
+    def destroy
+        article = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
+        article.destroy
+        redirect_to novel_path( params[:novel_id] )
     end
 
     private
