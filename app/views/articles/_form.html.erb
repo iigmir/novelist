@@ -1,9 +1,11 @@
-<%= form_for( @forms , url: @form_url ) do |f| %>
-  <%= f.label :subtitle , "小標題" %>:
-  <%= f.text_field :subtitle %><br />
-
-  <%= f.label :context , "內文" %>:
-  <%= f.text_area :context %><br />
-
-  <%= f.submit %>
+<%= form_for( @forms , url: @form_url, html:({class:"ts horizontal form"}) ) do |f| %>
+    <div class="field">
+        <%= f.label :subtitle , "小標題" %>
+        <%= f.text_field :subtitle %>
+    </div>
+    <div class="field">
+        <%= f.label :context , "內文" %>
+        <%= f.text_area :context %>
+    </div>
+    <%= f.submit %>
 <% end %>

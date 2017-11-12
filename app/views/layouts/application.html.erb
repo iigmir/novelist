@@ -16,12 +16,14 @@
             <%= notice if notice %>
             <%= alert  if alert  %>
         </div>
-
+        <div class="ts divider"></div>
         <main>
             <%= yield %>
         </main>
-        
-
-        
+        <footer>
+            <div class="ts breadcrumb">
+                <%= yield :footbar %>
+            </div>
+        </footer>
     </body>
 </html>

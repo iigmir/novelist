@@ -1,10 +1,11 @@
-<%# Form %>
-<%= form_for @forms do |f| %>
-  <%= f.label :title , "標題" %>:
-  <%= f.text_field :title %><br />
-
-  <%= f.label :plot , "簡介" %>:
-  <%= f.text_area :plot %><br />
-
-  <%= f.submit %>
+<%= form_for( @forms , html:({class:"ts horizontal form"}) ) do |f| %>
+    <div class="field">
+        <%= f.label :title , "標題" %>
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+        <%= f.label :plot , "簡介" %>
+        <%= f.text_area :plot %>
+    </div>
+    <%= f.submit %>
 <% end %>

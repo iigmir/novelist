@@ -14,5 +14,4 @@
  *= require_self
  */
 
-h1 { color: black; }
-h1:hover { color: blue; }
+body{ padding-top: 1rem ; }

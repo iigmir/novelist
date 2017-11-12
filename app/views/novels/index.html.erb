@@ -4,9 +4,12 @@
     <% end %>
 </ul>
 
-<% if user_signed_in? %>
-    <%= link_to "建立新的小說", new_novel_path %>
-    <%= link_to "登出", destroy_user_session_path, method: :delete %>
-<% else %>
-    <%= link_to "登入", new_user_session_path %>
+<%= content_for :footbar do %>
+    <% if user_signed_in? %>
+        <%= link_to "建立新的小說", new_novel_path , class:"section" %>
+        <div class="divider"> / </div>
+        <%= link_to "登出", destroy_user_session_path, class:"section" , method: :delete %>
+    <% else %>
+        <%= link_to "登入", new_user_session_path , class:"section" %>    
+    <% end %>
 <% end %>
