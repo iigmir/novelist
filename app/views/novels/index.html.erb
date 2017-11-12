@@ -1,4 +1,3 @@
-<h1>成為小說家吧</h1>
 <ul>
     <% @novels.each do |n| %>
     <li> <%= link_to n.title, novel_path(n.id) %> </li>

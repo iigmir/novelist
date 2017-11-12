@@ -6,10 +6,14 @@
         <%= stylesheet_link_tag    'application', media: 'all' %>
         <%= javascript_include_tag 'application' %>
     </head>
-    <body>
+    <body class="ts container">
+        <h1><%= link_to "成為小說家吧", novels_path %></h1>
+        <main>
+            <%= yield %>
+        </main>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
-        <%= yield %>
+        
     </body>
 </html>
