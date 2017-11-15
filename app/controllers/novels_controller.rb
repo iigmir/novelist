@@ -5,7 +5,7 @@ class NovelsController < ApplicationController
     end
     def create
         @new_novel = Novel.create(novel_params)
-        @new_novel.author = current_user.nickname
+        @new_novel.author = current_user.email
         if @new_novel.save
             Novel.joins(@new_novel)
             redirect_to novels_path
