@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
         new_article = Article.create(article_params)
         new_article.novel_id = params[:novel_id] # Novel number that article belong to
         new_article.chapter = Article.chapter_number( params[:novel_id] )
-        #byebug
         if new_article.save!
             Article.joins(new_article)
             redirect_to novel_path( params[:novel_id] )
@@ -32,7 +31,6 @@ class ArticlesController < ApplicationController
     end
     def update
         article = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
-        #byebug
         if article.update( article_params )
             redirect_to novel_article_path({ novel_id: params[:novel_id] , id: params[:id] })
         else
