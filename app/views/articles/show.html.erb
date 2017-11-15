@@ -5,10 +5,12 @@
 
 <%= content_for :footbar do %>
     <% if user_signed_in? %>
-        <%= link_to "編輯", edit_novel_article_path({ novel_id: @novel.id , id: @article.chapter }) , class:"section" %>
-        <div class="divider"> / </div>
-        <%= link_to "刪除", novel_article_path({ novel_id: @novel.id , id: @article.chapter }), data: {confirm: '確定嗎？'}, method: :delete , class:"section" %>
-        <div class="divider"> / </div>
+        <% if current_user.is_admin || current_user.email == @novel.author %>
+            <%= link_to "編輯本章節", edit_novel_article_path({ novel_id: @novel.id , id: @article.chapter }) , class:"section" %>
+            <div class="divider"> / </div>
+            <%= link_to "刪除本章節", novel_article_path({ novel_id: @novel.id , id: @article.chapter }), data: {confirm: '確定嗎？'}, method: :delete , class:"section" %>
+            <div class="divider"> / </div>
+        <% end %>
         <%= link_to "登出", destroy_user_session_path, method: :delete , class:"section" %>
     <% else %>
         <%= link_to "登入", new_user_session_path , class:"section" %>    

@@ -12,9 +12,9 @@
 <%= content_for :footbar do %>
     <% if user_signed_in? %>
         <% if current_user.is_admin || current_user.email == @novel.author %>
-            <%= link_to "編輯", edit_novel_path( @novel.id ) , class:"section" %>
+            <%= link_to "編輯大綱", edit_novel_path( @novel.id ) , class:"section" %>
             <div class="divider"> / </div>
-            <%= link_to "刪除", novel_path( @novel.id ), data: {confirm: '確定嗎？'}, method: :delete , class:"section" %>
+            <%= link_to "刪除小說", novel_path( @novel.id ), data: {confirm: '確定嗎？'}, method: :delete , class:"section" %>
             <div class="divider"> / </div>
             <%= link_to "新的章節", new_novel_article_path( @novel.id ) , class:"section" %>
             <div class="divider"> / </div>
