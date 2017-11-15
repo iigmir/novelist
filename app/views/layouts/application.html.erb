@@ -27,6 +27,14 @@
             <div class="ts breadcrumb">
                 <%= yield :footbar %>
             </div>
+            <br />
+            <div class="ts breadcrumb">
+                <% if user_signed_in? %>
+                    <%= link_to "登出", destroy_user_session_path, class:"section" , method: :delete %>
+                <% else %>
+                    <%= link_to "登入", new_user_session_path , class:"section" %>    
+                <% end %>
+            </div>
         </footer>
     </body>
 </html>

@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+        #byebug
         @forms = Article.where( "novel_id = ? and chapter = ?" , params[:novel_id] , params[:id] ).first
         @form_url = novel_article_path
     end

@@ -19,8 +19,5 @@
             <%= link_to "新的章節", new_novel_article_path( @novel.id ) , class:"section" %>
             <div class="divider"> / </div>
         <% end %>
-        <%= link_to "登出", destroy_user_session_path, method: :delete , class:"section" %>
-    <% else %>
-        <%= link_to "登入", new_user_session_path , class:"section" %>    
     <% end %>
 <% end %>
