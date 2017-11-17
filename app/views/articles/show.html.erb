@@ -3,6 +3,12 @@
 
 <%= sanitize( @markdown.render( @article.context ) ) %>
 
+<div id="navi_arrow">
+    <%= navi_arrow_link( @novel.id , @article.chapter , -1 ) %>
+    <span class="divdr"></span>
+    <%= navi_arrow_link( @novel.id , @article.chapter , 1 ) %>
+</div>
+
 <%= content_for :footbar do %>
     <% if user_signed_in? %>
         <% if current_user.is_admin || current_user.email == @novel.author %>
